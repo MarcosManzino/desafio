@@ -1,0 +1,23 @@
+{
+	"products": [
+		{
+			"id": 1,
+			"title": "Manga One piece tomo n°1",
+			"description": "Manga de 34paginas..",
+			"price": 1200,
+			"thumbnail": "../img/onepiece01.jpg",
+			"code": 1234,
+			"stock": 5
+		},
+		{
+			"id": 2,
+			"title": "Manga Naruto tomo n°1",
+			"description": "Manga de 42 páginas..",
+			"price": 1000,
+			"thumbnail": "../img/naruto01.jpg",
+			"code": 5678,
+			"stock": 3
+		}
+	],
+	"precio": 2000
+}
