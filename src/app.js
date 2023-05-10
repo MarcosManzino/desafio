@@ -1,17 +1,19 @@
 import express from "express";
-import { products } from "./products.js";
 import ProductManager from "./index.js";
 
 
 const app = express();
 app.use(express.json())
 const port = 8080;
+const manager = new ProductManager()
 
 
 
 
-app.get('/products', (req, res) => {
+app.get('/products', async (req, res) => {
   const limit = req.query.limit;
+  let products = await manager.readProducts();
+ let response = limit ? products.slice(0, limit) : products
   if (limit) {
     res.json(products.slice(0, limit));
   } else {
@@ -19,7 +21,8 @@ app.get('/products', (req, res) => {
   }
 });
 
-app.get('/products/:pid', (req, res) => {
+app.get('/products/:pid', async (req, res) => {
+  let products = await manager.readProducts();
   const { pid } = req.params;
   const product = products.find(p => p.id == pid);
   console.log(product)
